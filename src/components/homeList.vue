@@ -1,19 +1,19 @@
 <template>
     <div class="list">
         <template v-for="item in items">
-            <router-link class="thumbnail" :to="{name: 'mine', params: { id: item.id }}" :key="item.id">
+            <a :href="item.extra.topic_url" class="thumbnail" :key="item.id">
                 <div class="content">
-                    <img :src="item.image_hlarge" alt="cover">
+                    <img :src="item.extra.thumbnail_pic" alt="cover">
                     <h3>{{item.title}}</h3>
-                    <p>{{item.content | subStr}}</p>
+                    <p>{{item.extra.summary}}</p>
+                    <p class="content-source">{{item.extra.source}}</p>
                 </div>
                 <div class="author">
-                    <span class="name">{{item.category_name}}</span>
-                    <span class="label" v-if="item.subcategory_name">
-                        本活动来自栏目: {{item.subcategory_name}}
-                    </span>
+                    <img class="author-img" :src="item.extra.author_avatar" alt="">
+                    <p class="author-name">{{item.extra.author}}</p>
+                    <p class="author-read-num">阅读数：{{item.extra.read_number}}</p>
                 </div>
-            </router-link>
+            </a>
         </template>
     </div>
 </template>
@@ -49,12 +49,11 @@ export default {
     .thumbnail {
         position: relative;
         display: block;
-        padding: 0.5rem 0.5rem 0.5rem 0;
+        padding: 0.5rem 0.5rem 0 0;
         margin-left: 10px;
 
         .content {
             overflow: hidden;
-            margin-bottom: 15px;
         }
 
         h3 {
@@ -81,15 +80,31 @@ export default {
             height: 150px;
             margin-left: 15px;
         }
+        .content-source {
+            margin: 0 0 0 0;
+        }
 
         .author {
             font-size: 14px;
             color: #ccc;
-        }
-        .name {
-            position: absolute;
-            bottom: 10px;
-            left: 0px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+
+            .author-img {
+                float: left;
+                width: 25px;
+                height: 25px;
+                margin-top: 10px;
+                margin-left: 0px;
+            }
+            .author-name {
+                float: left;
+                margin-left: 20px;
+            }
+            .author-read-num {
+                float: right;
+            }
         }
 
         .label {

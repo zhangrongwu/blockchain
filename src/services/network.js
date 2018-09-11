@@ -7,7 +7,7 @@ Axios.create({
   timeout: 5000
 });
 
-Axios.defaults.baseURL = process.env.API_HOST + "/v2/";
+Axios.defaults.baseURL = process.env.API_HOST;
 // 拦截器 发送网络请求
 Axios.interceptors.request.use(function(config) {
   return config;

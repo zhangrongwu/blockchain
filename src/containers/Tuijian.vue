@@ -1,17 +1,50 @@
 <template>
     <div class="middle">
-        推荐
+        <home-list :items="events"></home-list>
+        <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+            <loading slot="spinner"></loading>
+        </infinite-loading>
     </div>
 </template>
 
 <script>
-import homeHeaderView from "../components/homeHeaderView";
-import home from "@/containers/Home";
+// 导入状态数据管理
+import { mapState, mapActions } from "vuex";
+import homeList from "../components/homeList";
+import InfiniteLoading from "vue-infinite-loading";
+import loading from "../components/Loading";
 
 export default {
     components: {
-        homeHeaderView,
-        home
+        homeList,
+        InfiniteLoading,
+        loading
+    },
+    data() {
+        return {
+            index: 0
+        };
+    },
+    created() {
+        console.log("created");
+    },
+    // 计算属性 数据回调与vue进行绑定
+    computed: {
+        ...mapState({
+            events: state => state.main.events
+        })
+    },
+    methods: {
+        onInfinite() {
+            setTimeout(() => {
+                this.$store.dispatch({
+                    type: "loadMore",
+                    param: ""
+                });
+                this.$refs.infiniteLoading.$emit("$InfiniteLoading:loaded");
+            }, 1000);
+        },
+        ...mapActions["loadMore"]
     }
 };
 </script>
@@ -23,7 +56,6 @@ export default {
     justify-content: center;
     position: absolute;
     background-color: white;
-    margin-top: 45px;
 }
 </style>
 
