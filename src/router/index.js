@@ -2,17 +2,16 @@ import Vue from "vue";
 import Router from "vue-router";
 import home from "@/containers/Home";
 import main from "@/containers/Main";
+
+import tuijian from "@/containers/Tuijian";
+import toutiao from "@/containers/Toutiao";
+import zhengce from "@/containers/Zhengce";
+import Hangqing from "@/containers/Hangqing";
+
 import mine from "@/containers/Mine";
 import news from "@/containers/News";
-import about from "@/containers/About";
 import noFound from "@/containers/NoFound";
-import newsDetail from "@/containers/NewsDetail";
 import moreMovie from "@/containers/MoreMovie";
-
-import time from "@/containers/Time";
-import bookstore from "@/containers/BookStore";
-import doupin from "@/containers/DouPin";
-import movie from "@/containers/Movie";
 
 Vue.use(Router);
 
@@ -29,24 +28,24 @@ export default new Router({
       component: main,
       children: [
         {
-          path: "/home",
-          name: "home",
-          component: home
+          path: "/main/tuijian",
+          name: "tuijian",
+          component: tuijian
         },
         {
-          path: "/bookstore",
-          name: "bookstore",
-          component: bookstore
+          path: "/main/toutiao",
+          name: "toutiao",
+          component: toutiao
         },
         {
-          path: "/doupin",
-          name: "doupin",
-          component: doupin
+          path: "/main/zhengce",
+          name: "zhengce",
+          component: zhengce
         },
         {
-          path: "/movie",
-          name: "movie",
-          component: movie
+          path: "/main/Hangqing",
+          name: "Hangqing",
+          component: Hangqing
         }
       ]
     },
@@ -59,21 +58,6 @@ export default new Router({
       path: "/mine",
       name: "mine",
       component: mine
-    },
-    {
-      path: "/about",
-      name: "about",
-      component: about
-    },
-    {
-      path: "/news/newsDetail/:id",
-      name: "newsDetail",
-      component: newsDetail
-    },
-    {
-      path: "/news/moreMovie/:id",
-      name: "moreMovie",
-      component: moreMovie
     },
     {
       path: "*",

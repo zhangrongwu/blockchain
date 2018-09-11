@@ -17,7 +17,7 @@ export default {
     filters: {},
     created() {
         if (active == 0) {
-            this.$router.push({ name: "home" });
+            this.$router.push({ name: "main" });
         } else if (active == 1) {
             this.$router.push({ name: "news" });
         } else if (active == 2) {
@@ -34,7 +34,7 @@ export default {
     watch: {
         active: function(newValue, oldValue) {
             if (newValue == 0) {
-                this.$router.push({ name: "home" });
+                this.$router.push({ name: "main" });
             } else if (newValue == 1) {
                 this.$router.push({ name: "news" });
             } else if (newValue == 2) {
@@ -51,14 +51,14 @@ export default {
                 {
                     normal: require("./assets/icon-home-normal.png"),
                     active: require("./assets/icon-home-active.png"),
-                    title: "首页",
+                    title: "资讯",
                     badge: "",
                     id: 0
                 },
                 {
                     normal: require("./assets/icon-news-normal.png"),
                     active: require("./assets/icon-news-active.png"),
-                    title: "电影",
+                    title: "交易",
                     badge: "1",
                     id: 1
                 },

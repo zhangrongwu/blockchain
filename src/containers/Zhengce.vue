@@ -1,7 +1,6 @@
 <template>
     <div class="middle">
-        <home-header-view></home-header-view>
-        <router-view></router-view>
+       政策
     </div>
 </template>
 
@@ -13,9 +12,6 @@ export default {
     components: {
         homeHeaderView,
         home
-    },
-    created() {
-        this.$router.push({ name: "tuijian" });
     }
 };
 </script>

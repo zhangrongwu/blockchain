@@ -16,22 +16,22 @@ export default {
                 {
                     id: "1",
                     title: "推荐",
-                    name: "home"
+                    name: "tuijian"
                 },
                 {
                     id: "2",
                     title: "头条",
-                    name: "doupin"
+                    name: "toutiao"
                 },
                 {
                     id: "3",
                     title: "政策",
-                    name: "bookstore"
+                    name: "zhengce"
                 },
                 {
                     id: "4",
                     title: "行情",
-                    name: "movie"
+                    name: "Hangqing"
                 }
             ]
         };
