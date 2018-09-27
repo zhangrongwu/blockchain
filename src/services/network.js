@@ -2,7 +2,8 @@ import Axios from "axios";
 
 Axios.create({
   headers: {
-    "Content-Type": "application/json; charset=utf-8"
+    "Content-Type": "application/json; charset=utf-8",
+    "Access-Control-Allow-Origin": "*"
   },
   timeout: 5000
 });
