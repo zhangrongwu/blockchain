@@ -16,7 +16,9 @@ const actions = {
   loadMore({ commit, state }) {
     request({
       url:
-        "v6/information/list?catelogue_key=www&limit=10&information_id=" + state.information_id + "&flag=down&version=9.9.9",
+        "v6/information/list?catelogue_key=www&limit=10&information_id=" +
+        state.information_id +
+        "&flag=down&version=9.9.9",
       methods: "get",
       params: ""
     })

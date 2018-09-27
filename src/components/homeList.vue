@@ -5,7 +5,7 @@
                 <div class="content">
                     <img :src="item.extra.thumbnail_pic" alt="cover">
                     <h3>{{item.title}}</h3>
-                    <p>{{item.extra.summary}}</p>
+                    <p class="content-summary">{{item.extra.summary}}</p>
                     <p class="content-source">{{item.extra.source}}</p>
                 </div>
                 <div class="author">
@@ -75,10 +75,18 @@ export default {
         }
 
         img {
-            float: right;
-            width: 100px;
-            height: 150px;
-            margin-left: 15px;
+            float: left;
+            width: 150px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        .content-summary {
+            // height: 40px;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
         }
         .content-source {
             margin: 0 0 0 0;
